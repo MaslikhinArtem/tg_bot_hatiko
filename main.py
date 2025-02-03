@@ -50,7 +50,7 @@ async def get_imei(message: Message):
     try:
         json_response = json.loads(str(response.text))["properties"]
     except:
-        await message.answer(str(json.loads(response.text)["errors"]['deviceId']))
+        await message.answer(str(json.loads(response.text)["errors"]['deviceId'][0]))
         return
     list_result = []
     for value in json_response:
