@@ -44,9 +44,6 @@ async def get_imei(message: Message):
         }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-    print(response.text)
-    print(response.status_code)
-
     try:
         json_response = json.loads(str(response.text))["properties"]
     except:
